@@ -28,7 +28,25 @@ function setDateHour() {
     var today = new Date();
     var day = today.getDate();
     var dayFinal = "th";
-    currentHour = today.getHours();
-     
-
+    hour = today.getHours();
+    // easily sort days < 10
+    if (day < 10) {
+        dateToday = today.getFullYear() + months[today.getMonth()] + "0" + day;
+        }
+    else {
+        dateToday = today.getFullYear() + months[today.getMonth()] + day;
+    }
+    // date ending
+    if ((day === 21) || (day === 21) || (day === 31)) {
+        dayEnd = "st";
+    }
+    else if ((day === 2) || (day === 22)) {
+        dayEnd = "nd";
+    }
+    else if ((day === 3) || (day === 23)) {
+        dayEnd = "rd";
+    }
+    // display date in header
+    dateToday = days[today.getToday()] + ", " + months[today.getMonth()] + " " + day + dayFinal + " ," + today.getFullYear();
+    $("#currentDay").text(dateToday);
 }
