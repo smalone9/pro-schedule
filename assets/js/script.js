@@ -50,3 +50,12 @@ function setDateHour() {
     dateToday = days[today.getToday()] + ", " + months[today.getMonth()] + " " + day + dayFinal + " ," + today.getFullYear();
     $("#currentDay").text(dateToday);
 }
+
+// time blocks
+function TimeBlocks() {
+    var containerDiv = $(".container"); 
+    //hourMap loop
+    for (let hourBlock=firstEntry; hourBlock <= lastEntry; hourBlock++) {
+        var newRow = '<div class="row time-block"> ' + '<div class="col-md-1 hour"> ' + hourMap[hourBlock] + '</div>';
+    }
+}
