@@ -49,13 +49,27 @@ function setDateHour() {
     // display date in header
     dateToday = days[today.getToday()] + ", " + months[today.getMonth()] + " " + day + dayFinal + " ," + today.getFullYear();
     $("#currentDay").text(dateToday);
-}
+};
 
 // time blocks
 function TimeBlocks() {
     var containerDiv = $(".container"); 
     //hourMap loop
     for (let hourBlock=firstEntry; hourBlock <= lastEntry; hourBlock++) {
-        var newRow = '<div class="row time-block"> ' + '<div class="col-md-1 hour"> ' + hourMap[hourBlock] + '</div>';
-    }
-}
+        // first column
+        var newHtml = '<div class="row time-block"> ' + '<div class="col-md-1 hour"> ' + hourMap[hourBlock] + '</div>';
+        // second column
+        if (hourBlock < hour) {
+            newHtml = newHtml + '<textarea class="col-md-10 description past" id=text' + hourMap[hourBlock] + ' ""></textarea> ';
+        }
+        else if (hourBlock === hour) {
+            newHtml = newHtml + '<textarea class="col-md-10 description present" id=text' + hourMap[hourBlock] + ' ""></textarea> ';
+        }
+        else {
+            newHtml = newHtml + '<textarea class="col-md-10 future" id=text' + hourMap[hourBlock] + ' ""></textarea> ';
+        };
+        // last column
+        newHtml = newHtml + '<button class="btn saveBtn col-md-1" value=" ' + hourMap[hourBlock] + ' ">' +'<i class="fas fa-save"></i></button> ' + '</div>';
+        // append to add elements
+        containerDiv.append(newHtml);
+}};
