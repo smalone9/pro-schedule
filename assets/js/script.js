@@ -50,7 +50,7 @@ function setDateHour() {
     dateToday = days[today.getToday()] + ", " + months[today.getMonth()] + " " + day + dayFinal + " ," + today.getFullYear();
     $("#currentDay").text(dateToday);
 };
-
+console.log(setDateHour);
 // time blocks
 function TimeBlocks() {
     var containerDiv = $(".container"); 
