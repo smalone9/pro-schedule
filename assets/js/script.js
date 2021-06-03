@@ -3,7 +3,7 @@ var currentDateString = ""; // string for holding today's date for display
 var currentHour = 9; // current hour for highlighting the correct row, default to first hour
 var timeEntries = []; // initialize list of log entries
 
-const timeEntriesName = "workDaySchedulerList"; // name used for localstorage
+const timeEntriesName = "workDaySchedulerList"; // name used for localStorage
 const firstEntry = 9; // first displayed time block, relative to hourMap (9AM)
 const lastEntry = 17; // last display time block, relative to hourMap (5PM)
 const hourMap = ["12AM","1AM","2AM","3AM","4AM","5AM","6AM","7AM","8AM","9AM","10AM","11AM","12PM",
@@ -15,7 +15,7 @@ const months = ["January", "February", "March", "April", "May", "June",
 
 setCurrentDateAndHour(); // Set currentDate, currentDateString, and currentHour, display date in header
 buildTimeBlocks(); // Build rest of html for page
-getTimeEntries(); // See if there are entries in localstorage and load them
+getTimeEntries(); // See if there are entries in localStorage and load them
 
 $(".saveBtn").click(saveClick); // Set event handler for all save buttons
 
@@ -59,24 +59,24 @@ function buildTimeBlocks() {
     for (let hourBlock=firstEntry; hourBlock <= lastEntry; hourBlock++) {
         // build the html for the row and the first column
         var newHtml = '<div class="row time-block"> ' +
-            '<div class="col-md-1 hour">' + hourMap[hourBlock] + '</div> ';
+            '<div class="col-1 hour">' + hourMap[hourBlock] + '</div> ';
         
-        // conditionally set second column to corrent class: past, present or future
+        // conditionally set second column to current class: past, present or future
         if (hourBlock < currentHour) {
-            newHtml = newHtml + '<textarea class="col-md-10 description past" id="text' + 
+            newHtml = newHtml + '<textarea class="col-10 description past" id="text' + 
                 hourMap[hourBlock] + '"></textarea> ';
         }
         else if (hourBlock === currentHour) {
-            newHtml = newHtml + '<textarea class="col-md-10 description present" id="text' + 
+            newHtml = newHtml + '<textarea class="col-10 description present" id="text' + 
                 hourMap[hourBlock] + '"></textarea> ';
         }
         else {
-            newHtml = newHtml + '<textarea class="col-md-10 description future" id="text' + 
+            newHtml = newHtml + '<textarea class="col-10 description future" id="text' + 
                 hourMap[hourBlock] + '"></textarea> ';
         };
 
         // add last column and close the row div
-        newHtml = newHtml + '<button class="btn saveBtn col-md-1" value="' + hourMap[hourBlock] + '">' +
+        newHtml = newHtml + '<button class="btn saveBtn col-1" value="' + hourMap[hourBlock] + '">' +
             '<i class="fas fa-save"></i></button> ' +
             '</div>';
 
@@ -85,7 +85,7 @@ function buildTimeBlocks() {
     }
 }
 
-// loads timeEntries array from localstorage
+// loads timeEntries array from localStorage
 function getTimeEntries() {
     var teList = JSON.parse(localStorage.getItem(timeEntriesName));
 
