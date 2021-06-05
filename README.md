@@ -14,7 +14,7 @@ SO THAT I can manage my time effectively
 ## Website
 [Check it Out](https://smalone9.github.io/pro-schedule/)
 
-![Image of Password Generator](./assets/css/screenshot)
+![Image of Password Generator](assets/css/screenshot)
 
 ## Contribution
 Made with ❤️ by Samantha Malone
