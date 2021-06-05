@@ -1,14 +1,13 @@
-var currentDate = ""; // string for holding date index to timeEntries
-var currentDateString = ""; // string for holding today's date for display
-var currentHour = 9; // current hour for highlighting the correct row, default to first hour
-var timeEntries = []; // initialize list of log entries
-
-const timeEntriesName = "workDaySchedulerList"; // name used for localStorage
-const firstEntry = 9; // first displayed time block, relative to hourMap (9AM)
-const lastEntry = 17; // last display time block, relative to hourMap (5PM)
+var currentDate = ""; 
+var currentDateString = ""; 
+var currentHour = 9; 
+var timeEntries = [];
+// local storage and displays
+const timeEntriesName = "workDaySchedulerList"; 
+const firstEntry = 9; 
+const lastEntry = 17; 
 const hourMap = ["12AM","1AM","2AM","3AM","4AM","5AM","6AM","7AM","8AM","9AM","10AM","11AM","12PM",
-                "1PM","2PM","3PM","4PM","5PM","6PM","7PM","8PM","9PM","10PM","11PM"]; // map of military hours
-
+                "1PM","2PM","3PM","4PM","5PM","6PM","7PM","8PM","9PM","10PM","11PM"]; 
 const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 const months = ["January", "February", "March", "April", "May", "June", 
                 "July", "August", "September", "October", "November", "December"];
@@ -17,7 +16,7 @@ setCurrentDateAndHour(); // Set currentDate, currentDateString, and currentHour,
 buildTimeBlocks(); // Build rest of html for page
 getTimeEntries(); // See if there are entries in localStorage and load them
 
-$(".saveBtn").click(saveClick); // Set event handler for all save buttons
+
 
 // Done when page loads; sets date in header and determines current hour
 function setCurrentDateAndHour() {
@@ -84,7 +83,8 @@ function buildTimeBlocks() {
         containerDiv.append(newHtml);
     }
 }
-
+// save button event handler
+$(".saveBtn").click(saveClick); 
 // loads timeEntries array from localStorage
 function getTimeEntries() {
     var teList = JSON.parse(localStorage.getItem(timeEntriesName));
