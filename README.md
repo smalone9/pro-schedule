@@ -18,4 +18,5 @@ SO THAT I can manage my time effectively
 
 ## Contribution
 Made with ❤️ by Samantha Malone
+Shout out to my tutor and andreaGT91.
 © 2021 Samantha Malone. All rights reserved.
